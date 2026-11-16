@@ -1,0 +1,40 @@
+/* Plume typography.
+   Fonts are loaded from chrome/fonts/ (run scripts/fetch-fonts.sh once).
+   If the files are missing, the stack falls back to the system UI font. */
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../fonts/PlusJakartaSans-Variable.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../fonts/JetBrainsMono-Variable.ttf") format("truetype");
+  font-weight: 100 800;
+  font-style: normal;
+}
+
+:root {
+  --plume-font-sans: "Plus Jakarta Sans", -apple-system, "Segoe UI", system-ui, sans-serif;
+  --plume-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --plume-weight-regular: 400;
+  --plume-weight-medium: 500;
+  --plume-weight-semibold: 600;
+  --plume-weight-bold: 700;
+
+  /* Sizes tuned for a desktop mail client, not the web app */
+  --plume-text-h1: 20px;
+  --plume-text-h2: 17px;
+  --plume-text-h3: 15px;
+  --plume-text-body: 13.5px;
+  --plume-text-sm: 12.5px;
+  --plume-text-caption: 11.5px;
+  --plume-text-micro: 10.5px;   /* uppercase column headers */
+
+  --plume-track-tight: -0.012em;
+  --plume-track-body: -0.004em;
+  --plume-track-micro: 0.06em;
+}

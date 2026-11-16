@@ -1,0 +1,8 @@
+/* Message reader content.
+
+   Phase 3: plain-text and simple HTML mails only. Styled newsletters keep
+   their own design, so rules here must stay low-impact:
+   - blockquote[type="cite"]   quote levels in teal / iris / mint
+   - .moz-text-plain, .moz-text-flowed   font and line height
+   - .moz-signature            muted signature text
+   Scope with @-moz-document or :root:not([...]) where needed. */

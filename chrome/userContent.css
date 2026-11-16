@@ -1,0 +1,12 @@
+/* Plume for Betterbird — userContent.css
+   Styles content documents: the message reader, about: pages,
+   settings, add-ons manager. */
+
+@import url("tokens/colors.css");
+@import url("tokens/shape.css");
+@import url("tokens/type.css");
+@import url("tokens/motion.css");
+@import url("tokens/colors-dark.css");
+
+@import url("content/message.css");
+@import url("content/about-pages.css");

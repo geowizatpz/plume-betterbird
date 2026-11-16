@@ -1,0 +1,25 @@
+/* Plume motion. Short and eased-out. */
+
+:root {
+  --plume-duration-instant: 80ms;
+  --plume-duration-fast: 140ms;
+  --plume-duration-base: 200ms;
+  --plume-duration-slow: 320ms;
+
+  --plume-ease-out: cubic-bezier(.22, .61, .36, 1);
+  --plume-ease-in-out: cubic-bezier(.4, 0, .2, 1);
+
+  --plume-transition-control:
+    background-color var(--plume-duration-fast) var(--plume-ease-out),
+    box-shadow var(--plume-duration-base) var(--plume-ease-out),
+    color var(--plume-duration-fast) var(--plume-ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --plume-duration-instant: 0ms;
+    --plume-duration-fast: 0ms;
+    --plume-duration-base: 0ms;
+    --plume-duration-slow: 0ms;
+  }
+}

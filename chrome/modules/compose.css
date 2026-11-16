@@ -1,0 +1,212 @@
+/* Compose window (messengercompose.xhtml).
+
+   Layout: desk background, a toolbar with a neon Send pill, then two cards:
+   one for the header fields (From / To / Subject), one for the format bar
+   and the message editor. Attachments get their own card at the bottom. */
+
+@-moz-document url-prefix("chrome://messenger/content/messengercompose/messengercompose.xhtml") {
+
+  #msgcomposeWindow,
+  #composeContentBox {
+    background-color: var(--plume-surface-desk) !important;
+    color: var(--plume-text-body) !important;
+  }
+
+  /* ── Toolbar ──────────────────────────────────────────────── */
+  #compose-toolbox,
+  #compose-toolbox > toolbar,
+  #composeToolbar2 {
+    background: var(--plume-surface-desk) !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Top padding stays Betterbird's: on macOS it keeps the toolbar
+     below the window buttons. */
+  #composeToolbar2 {
+    padding-inline: var(--plume-pane-gap) !important;
+    padding-bottom: var(--plume-space-4) !important;
+  }
+
+  #composeToolbar2 .toolbarbutton-1 {
+    border-radius: var(--plume-radius-pill) !important;
+    transition: var(--plume-transition-control) !important;
+  }
+
+  #composeToolbar2 .toolbarbutton-1:not([disabled]):hover {
+    background: var(--plume-surface-card) !important;
+    box-shadow: var(--plume-shadow-raised) !important;
+    border-color: transparent !important;
+  }
+
+  /* Send: the one primary action */
+  #button-send {
+    background: var(--plume-accent) !important;
+    color: var(--plume-on-accent) !important;
+    border: 1px solid var(--plume-accent-pressed) !important;
+    box-shadow: var(--plume-shadow-accent) !important;
+    padding-inline: var(--plume-space-5) var(--plume-space-6) !important;
+    font-weight: var(--plume-weight-semibold) !important;
+  }
+
+  #button-send:not([disabled]):hover {
+    background: var(--plume-accent-hover) !important;
+    box-shadow: var(--plume-shadow-accent) !important;
+  }
+
+  #button-send:not([disabled]):active {
+    background: var(--plume-accent-pressed) !important;
+  }
+
+  #button-send .toolbarbutton-icon {
+    fill: color-mix(in srgb, var(--plume-on-accent) 20%, transparent) !important;
+    stroke: var(--plume-on-accent) !important;
+  }
+
+  /* ── Header card: From, To, Subject ───────────────────────── */
+  #MsgHeadersToolbar {
+    background-color: var(--plume-surface-card) !important;
+    border: 1px solid var(--plume-border-hairline) !important;
+    border-radius: var(--plume-pane-radius) !important;
+    box-shadow: var(--plume-shadow-sm) !important;
+    margin: 0 var(--plume-pane-gap) var(--plume-pane-gap) !important;
+    padding: var(--plume-space-4) var(--plume-space-3) var(--plume-space-5) !important;
+  }
+
+  .address-label-container label,
+  #identityLabel,
+  #subjectLabel {
+    color: var(--plume-text-subtle) !important;
+    font-weight: var(--plume-weight-medium) !important;
+  }
+
+  /* Input fields: soft inset wells, white with a teal ring on focus */
+  .address-container,
+  #msgSubject,
+  #msgIdentity {
+    background-color: var(--plume-surface-inset) !important;
+    border: 1px solid transparent !important;
+    border-radius: var(--plume-radius-sm) !important;
+    box-shadow: var(--plume-shadow-inset) !important;
+    color: var(--plume-text-strong) !important;
+    outline: none !important;
+  }
+
+  #msgIdentity:hover {
+    border-color: var(--plume-border-subtle) !important;
+  }
+
+  .address-container[focused="true"],
+  #msgSubject:focus,
+  #msgIdentity:is(:focus, :focus-within, [focused="true"]) {
+    background-color: var(--plume-surface-card) !important;
+    border-color: var(--plume-border-focus) !important;
+    box-shadow: var(--plume-ring) !important;
+  }
+
+  #msgSubject {
+    min-height: var(--plume-control-h) !important;
+    font-weight: var(--plume-weight-semibold) !important;
+  }
+
+  /* Recipient pills */
+  .address-pill {
+    border-radius: var(--plume-radius-pill) !important;
+    background-color: var(--plume-accent-soft) !important;
+    color: var(--plume-text-strong) !important;
+    padding-inline: var(--plume-space-5) !important;
+  }
+
+  .address-pill[selected]:not(.editing) {
+    background-color: var(--plume-accent) !important;
+    color: var(--plume-on-accent) !important;
+  }
+
+  .address-pill.invalid-address:not(.editing) {
+    background-color: var(--plume-danger) !important;
+    color: #FFFFFF !important;
+  }
+
+  .address-pill.key-issue:not(.editing) {
+    background-color: var(--plume-warning) !important;
+    color: var(--plume-on-accent) !important;
+  }
+
+  /* Cc / Bcc / Reply-To buttons */
+  #extraAddressRowsArea button,
+  .recipient-button {
+    border-radius: var(--plume-radius-pill) !important;
+  }
+
+  /* ── Editor card: format bar + message body ───────────────── */
+  #FormatToolbox {
+    background-color: var(--plume-surface-card-muted) !important;
+    border: 1px solid var(--plume-border-hairline) !important;
+    border-bottom: none !important;
+    border-radius: var(--plume-pane-radius) var(--plume-pane-radius) 0 0 !important;
+    margin-inline: var(--plume-pane-gap) !important;
+    overflow: hidden !important;
+  }
+
+  #FormatToolbar {
+    background: transparent !important;
+    border: none !important;
+    padding: var(--plume-space-2) var(--plume-space-4) !important;
+  }
+
+  #FormatToolbar :is(toolbarbutton, menulist, button) {
+    border-radius: var(--plume-radius-xs) !important;
+  }
+
+  #headersSplitter {
+    background: transparent !important;
+    border: none !important;
+  }
+
+  #messageArea {
+    background-color: var(--plume-surface-card) !important;
+    border: 1px solid var(--plume-border-hairline) !important;
+    border-radius: 0 0 var(--plume-pane-radius) var(--plume-pane-radius) !important;
+    box-shadow: var(--plume-shadow-sm) !important;
+    margin: 0 var(--plume-pane-gap) var(--plume-pane-gap) !important;
+    overflow: hidden !important;
+  }
+
+  /* Plain-text mode has no format bar: round the top corners too */
+  #FormatToolbox[hidden] + #headersSplitter + #messageArea,
+  #FormatToolbox:has(#FormatToolbar[hidden]) ~ #messageArea {
+    border-radius: var(--plume-pane-radius) !important;
+  }
+
+  /* ── Attachments ──────────────────────────────────────────── */
+  #attachmentArea {
+    background-color: var(--plume-surface-card) !important;
+    border: 1px solid var(--plume-border-hairline) !important;
+    border-radius: var(--plume-pane-radius) !important;
+    box-shadow: var(--plume-shadow-sm) !important;
+    margin: 0 var(--plume-pane-gap) var(--plume-pane-gap) !important;
+    overflow: hidden !important;
+  }
+
+  #attachmentSplitter {
+    background: transparent !important;
+    border: none !important;
+  }
+
+  #attachmentBucketCount {
+    font-weight: var(--plume-weight-semibold) !important;
+    color: var(--plume-text-strong) !important;
+  }
+
+  #attachmentBucketSize {
+    color: var(--plume-text-subtle) !important;
+  }
+
+  /* ── Status bar ───────────────────────────────────────────── */
+  #status-bar {
+    background: var(--plume-surface-desk) !important;
+    color: var(--plume-text-subtle) !important;
+    border: none !important;
+    font-size: var(--plume-text-caption) !important;
+  }
+}

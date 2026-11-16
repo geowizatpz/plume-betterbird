@@ -1,0 +1,5 @@
+/* about: pages — settings (about:preferences), add-ons manager,
+   account settings.
+
+   Phase 4: scope every rule with @-moz-document url-prefix("about:preferences")
+   and similar, so web content is never touched. */

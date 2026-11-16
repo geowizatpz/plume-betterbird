@@ -1,0 +1,120 @@
+/* Plume colour tokens.
+   Raw palette first, then semantic roles. Modules only use the semantic
+   --plume-* roles, so dark mode only has to redefine those (see colors-dark.css). */
+
+:root {
+  /* Neutrals: cool, faintly blue */
+  --plume-gray-0: #FFFFFF;
+  --plume-gray-25: #FBFBFC;
+  --plume-gray-50: #F7F8FA;
+  --plume-gray-100: #F1F2F5;
+  --plume-gray-150: #E9EAEF;
+  --plume-gray-200: #DFE1E7;
+  --plume-gray-300: #CBCFD8;
+  --plume-gray-400: #A6ADBA;
+  --plume-gray-500: #7F889A;
+  --plume-gray-600: #5E6879;
+  --plume-gray-700: #414B5C;
+  --plume-gray-800: #2D3E52;
+  --plume-gray-900: #1D2634;
+  --plume-gray-950: #12181F;
+
+  /* Ink */
+  --plume-ink: #2D3E52;
+  --plume-ink-soft: #46586E;
+  --plume-black: #171B22;
+
+  /* Neon blue: the one loud accent (selection, primary actions) */
+  --plume-neon-50: #EAFBFF;
+  --plume-neon-100: #D2F6FF;
+  --plume-neon-200: #A8EEFF;
+  --plume-neon-300: #7AE4FF;
+  --plume-neon-400: #4FD8FF;
+  --plume-neon-500: #22C7F2;
+  --plume-neon-700: #0A8FB3;
+
+  /* Lime: alternative accent, see README > Customize */
+  --plume-lime-50: #F8FCE4;
+  --plume-lime-100: #F2FAC9;
+  --plume-lime-200: #EAF7A6;
+  --plume-lime-300: #E2F663;
+  --plume-lime-400: #D8F04A;
+  --plume-lime-500: #C7E22B;
+  --plume-lime-700: #8B9E10;
+
+  /* Teal: focus rings, links, verified/encrypted states */
+  --plume-teal-50: #EDF8F7;
+  --plume-teal-100: #DAF0EE;
+  --plume-teal-200: #BEE6E3;
+  --plume-teal-300: #9DD9D4;
+  --plume-teal-400: #85D0CB;
+  --plume-teal-500: #5BBDB7;
+  --plume-teal-600: #3FA39D;
+  --plume-teal-700: #2E837E;
+
+  /* Mint and iris: soft supporting tints */
+  --plume-mint-100: #EBF2E9;
+  --plume-mint-300: #CFE2CC;
+  --plume-mint-700: #4E7A52;
+  --plume-iris-100: #EDEEFC;
+  --plume-iris-300: #C3C8FA;
+  --plume-iris-500: #7C7CF0;
+
+  /* Status hues */
+  --plume-green-100: #E4F4EB;
+  --plume-green-500: #3FA37A;
+  --plume-green-700: #2A7457;
+  --plume-red-100: #FBEAE8;
+  --plume-red-500: #E4685E;
+  --plume-red-700: #B44339;
+  --plume-amber-100: #FDF2DE;
+  --plume-amber-500: #E9A93C;
+  --plume-amber-700: #A9741A;
+  --plume-blue-100: #E8EFFD;
+  --plume-blue-500: #5B8DEF;
+  --plume-blue-700: #3560B8;
+
+  /* ── Semantic roles (light) ─────────────────────────────────── */
+  --plume-surface-desk: #E9EAEF;        /* window background behind the panes */
+  --plume-surface-shell: #F4F5F8;       /* toolbars, spaces bar */
+  --plume-surface-card: #FFFFFF;        /* folder pane, message list, reader */
+  --plume-surface-card-muted: #F7F8FA;  /* headers, zebra rows */
+  --plume-surface-inset: #F1F2F5;       /* inputs, search fields */
+  --plume-surface-2: #F1F2F5;           /* hover fills on shell surfaces */
+  --plume-surface-3: #E9EAEF;           /* button fills */
+  --plume-surface-4: #DFE1E7;           /* pressed fills */
+  --plume-surface-hover: rgba(45, 62, 82, .05);
+  --plume-badge-bg: var(--plume-ink);
+  --plume-badge-text: #FFFFFF;
+  --plume-surface-invert: #171B22;
+
+  --plume-accent: var(--plume-neon-400);
+  --plume-accent-hover: var(--plume-neon-300);
+  --plume-accent-pressed: var(--plume-neon-500);
+  --plume-accent-soft: var(--plume-neon-100);
+  --plume-accent-strong: var(--plume-neon-700);   /* accent as text or icon on surfaces */
+  --plume-accent-glow: rgba(34, 199, 242, .5);
+  --plume-on-accent: #1D2634;
+
+  --plume-text-strong: #1D2634;
+  --plume-text-body: #2D3E52;
+  --plume-text-muted: #5E6879;
+  --plume-text-subtle: #7F889A;
+  --plume-text-faint: #A6ADBA;
+  --plume-text-on-dark: #FFFFFF;
+  --plume-text-link: #2E837E;
+
+  --plume-border-hairline: rgba(45, 62, 82, .06);
+  --plume-border-subtle: rgba(45, 62, 82, .10);
+  --plume-border-strong: rgba(45, 62, 82, .16);
+  --plume-border-focus: rgba(91, 189, 183, .55);
+
+  --plume-success: var(--plume-green-500);
+  --plume-success-soft: var(--plume-green-100);
+  --plume-danger: var(--plume-red-500);
+  --plume-danger-soft: var(--plume-red-100);
+  --plume-warning: var(--plume-amber-500);
+  --plume-warning-soft: var(--plume-amber-100);
+  --plume-info: var(--plume-blue-500);
+  --plume-info-soft: var(--plume-blue-100);
+}

@@ -1,0 +1,54 @@
+/* Plume dark mode. Follows the OS appearance.
+   Only semantic roles change; the raw palette stays the same.
+   Derived from the ink and gray scales, neon blue stays the accent. */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --plume-surface-desk: #0E1218;
+    --plume-surface-shell: #12181F;
+    --plume-surface-card: #1A212B;
+    --plume-surface-card-muted: #1F2733;
+    --plume-surface-inset: #161C24;
+    --plume-surface-2: #222A36;
+    --plume-surface-3: #29323F;
+    --plume-surface-4: #313B49;
+    --plume-surface-hover: rgba(255, 255, 255, .05);
+    --plume-badge-bg: rgba(255, 255, 255, .12);
+    --plume-badge-text: #F1F2F5;
+    --plume-surface-invert: #F1F2F5;
+
+    --plume-accent: var(--plume-neon-400);
+    --plume-accent-hover: var(--plume-neon-300);
+    --plume-accent-pressed: var(--plume-neon-500);
+    --plume-accent-soft: rgba(79, 216, 255, .18);
+    --plume-accent-strong: var(--plume-neon-400);
+    --plume-accent-glow: rgba(79, 216, 255, .45);
+    --plume-on-accent: #1D2634;
+
+    --plume-text-strong: #F1F2F5;
+    --plume-text-body: #DFE1E7;
+    --plume-text-muted: #A6ADBA;
+    --plume-text-subtle: #7F889A;
+    --plume-text-faint: #5E6879;
+    --plume-text-on-dark: #1D2634;
+    --plume-text-link: var(--plume-teal-400);
+
+    --plume-border-hairline: rgba(255, 255, 255, .05);
+    --plume-border-subtle: rgba(255, 255, 255, .09);
+    --plume-border-strong: rgba(255, 255, 255, .15);
+    --plume-border-focus: rgba(133, 208, 203, .55);
+
+    --plume-success-soft: rgba(63, 163, 122, .18);
+    --plume-danger-soft: rgba(228, 104, 94, .18);
+    --plume-warning-soft: rgba(233, 169, 60, .18);
+    --plume-info-soft: rgba(91, 141, 239, .18);
+
+    --plume-shadow-xs: 0 1px 2px rgba(0, 0, 0, .25);
+    --plume-shadow-sm: 0 2px 8px -2px rgba(0, 0, 0, .35), 0 1px 2px rgba(0, 0, 0, .2);
+    --plume-shadow-md: 0 10px 28px -12px rgba(0, 0, 0, .5), 0 2px 6px -2px rgba(0, 0, 0, .3);
+    --plume-shadow-lg: 0 24px 52px -20px rgba(0, 0, 0, .6), 0 6px 14px -8px rgba(0, 0, 0, .35);
+    --plume-shadow-raised: inset 0 1px 0 rgba(255, 255, 255, .06), 0 1px 2px rgba(0, 0, 0, .3), 0 5px 12px -6px rgba(0, 0, 0, .45);
+    --plume-shadow-raised-hover: inset 0 1px 0 rgba(255, 255, 255, .08), 0 2px 4px rgba(0, 0, 0, .3), 0 10px 20px -8px rgba(0, 0, 0, .5);
+    --plume-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, .3);
+  }
+}

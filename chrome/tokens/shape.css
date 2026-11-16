@@ -1,0 +1,45 @@
+/* Plume space, radii, depth.
+   The radii are scaled down from the web design system: a mail client is
+   denser than a dashboard, so 40px shell corners would waste space. */
+
+:root {
+  --plume-space-1: 2px;
+  --plume-space-2: 4px;
+  --plume-space-3: 6px;
+  --plume-space-4: 8px;
+  --plume-space-5: 12px;
+  --plume-space-6: 16px;
+  --plume-space-7: 20px;
+  --plume-space-8: 24px;
+
+  --plume-radius-xs: 6px;
+  --plume-radius-sm: 10px;
+  --plume-radius-md: 14px;
+  --plume-radius-lg: 18px;
+  --plume-radius-xl: 24px;
+  --plume-radius-pill: 999px;
+
+  /* Gap between the floating pane cards in the main window */
+  --plume-pane-gap: 8px;
+  --plume-pane-radius: var(--plume-radius-lg);
+
+  --plume-control-h-sm: 28px;
+  --plume-control-h: 32px;
+  --plume-control-h-lg: 40px;
+  --plume-control-pad-x: 14px;
+  --plume-row-h: 34px;
+
+  /* Shadows: wide, soft, cool-tinted */
+  --plume-shadow-xs: 0 1px 2px rgba(29, 38, 52, .04);
+  --plume-shadow-sm: 0 2px 8px -2px rgba(29, 38, 52, .06), 0 1px 2px rgba(29, 38, 52, .035);
+  --plume-shadow-md: 0 10px 28px -12px rgba(29, 38, 52, .12), 0 2px 6px -2px rgba(29, 38, 52, .05);
+  --plume-shadow-lg: 0 24px 52px -20px rgba(29, 38, 52, .16), 0 6px 14px -8px rgba(29, 38, 52, .06);
+  --plume-shadow-raised: inset 0 1px 0 rgba(255, 255, 255, .9), 0 1px 2px rgba(29, 38, 52, .06), 0 5px 12px -6px rgba(29, 38, 52, .14);
+  --plume-shadow-raised-hover: inset 0 1px 0 rgba(255, 255, 255, .95), 0 2px 4px rgba(29, 38, 52, .05), 0 10px 20px -8px rgba(29, 38, 52, .16);
+  --plume-shadow-pressed: inset 0 1px 3px rgba(29, 38, 52, .14);
+  --plume-shadow-inset: inset 0 1px 2px rgba(29, 38, 52, .05);
+  --plume-shadow-accent: 0 8px 24px -10px var(--plume-accent-glow);
+
+  --plume-ring: 0 0 0 3px rgba(91, 189, 183, .28);
+  --plume-ring-danger: 0 0 0 3px rgba(228, 104, 94, .26);
+}

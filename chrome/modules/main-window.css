@@ -1,0 +1,313 @@
+/* Main window: the window frame, spaces bar, unified toolbar and tabs
+   (messenger.xhtml), plus the folder pane, message list and reading pane
+   (about3Pane.xhtml, which is loaded inside each mail tab).
+
+   Idea: a matte desk colour behind everything, each pane a white card with
+   rounded corners and a soft shadow, separated by --plume-pane-gap. */
+
+/* ════════════════════════════════════════════════════════════════
+   Window frame (messenger.xhtml)
+   ════════════════════════════════════════════════════════════════ */
+@-moz-document url("chrome://messenger/content/messenger.xhtml") {
+
+  #messengerWindow,
+  #messengerBody,
+  #tabmail,
+  #tabpanelcontainer {
+    background-color: var(--plume-surface-desk) !important;
+    color: var(--plume-text-body) !important;
+  }
+
+  #messengerWindow {
+    --messenger-body-border: 0px !important;
+  }
+
+  /* Unified toolbar */
+  unified-toolbar,
+  #navigation-toolbox,
+  #unifiedToolbarContainer,
+  #unifiedToolbar,
+  #titlebar {
+    background: var(--plume-surface-desk) !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  #unifiedToolbarContent .unified-toolbar-button,
+  #unifiedToolbarContent button {
+    border-radius: var(--plume-radius-pill) !important;
+    transition: var(--plume-transition-control) !important;
+  }
+
+  #unifiedToolbarContent .unified-toolbar-button:hover:not([disabled]) {
+    background-color: var(--plume-surface-card) !important;
+    box-shadow: var(--plume-shadow-raised) !important;
+  }
+
+  /* Global search: pill-shaped inset field */
+  global-search-bar,
+  #unifiedToolbarContent search-bar {
+    --search-bar-border-color: transparent !important;
+  }
+  #unifiedToolbarContent search-bar::part(input),
+  global-search-bar::part(input) {
+    border-radius: var(--plume-radius-pill) !important;
+    background-color: var(--plume-surface-card) !important;
+    box-shadow: var(--plume-shadow-inset) !important;
+  }
+
+  /* Tabs: soft pills, the selected one lifted onto a card */
+  #tabs-toolbar {
+    background: transparent !important;
+    border: none !important;
+    padding-inline: var(--plume-pane-gap) !important;
+  }
+
+  .tabmail-tab {
+    margin-block: 4px !important;
+    margin-inline-end: 4px !important;
+  }
+
+  .tabmail-tab .tab-background {
+    border-radius: var(--plume-radius-sm) !important;
+    border: none !important;
+    background: transparent !important;
+    transition: var(--plume-transition-control) !important;
+  }
+
+  .tabmail-tab:hover .tab-background:not([selected="true"]) {
+    background: var(--plume-surface-hover) !important;
+  }
+
+  .tabmail-tab .tab-background[selected="true"] {
+    background: var(--plume-surface-card) !important;
+    box-shadow: var(--plume-shadow-sm) !important;
+  }
+
+  .tab-line {
+    display: none !important;
+  }
+
+  .tabmail-tab[selected] .tab-label {
+    color: var(--plume-text-strong) !important;
+    font-weight: var(--plume-weight-semibold) !important;
+  }
+
+  /* Spaces bar (left icon rail) */
+  #spacesToolbar {
+    background: var(--plume-surface-desk) !important;
+    border: none !important;
+  }
+
+  .spaces-toolbar-button {
+    border-radius: var(--plume-radius-md) !important;
+    transition: var(--plume-transition-control) !important;
+  }
+
+  .spaces-toolbar-button:hover:not(.current) {
+    background-color: var(--plume-surface-card) !important;
+    box-shadow: var(--plume-shadow-sm) !important;
+  }
+
+  .spaces-toolbar-button.current {
+    box-shadow: var(--plume-shadow-accent) !important;
+  }
+
+  /* Status bar */
+  #status-bar {
+    background: var(--plume-surface-desk) !important;
+    color: var(--plume-text-subtle) !important;
+    border: none !important;
+    font-size: var(--plume-text-caption) !important;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   Three-pane layout (about3Pane.xhtml)
+   ════════════════════════════════════════════════════════════════ */
+@-moz-document url("about:3pane"), url("chrome://messenger/content/about3Pane.xhtml") {
+
+  body#paneLayout {
+    background-color: var(--plume-surface-desk) !important;
+    padding: 0 var(--plume-pane-gap) var(--plume-pane-gap) 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Each pane is a card */
+  #folderPane,
+  #threadPane,
+  #messagePane,
+  #accountCentralBrowser {
+    background-color: var(--plume-surface-card) !important;
+    border-radius: var(--plume-pane-radius) !important;
+    box-shadow: var(--plume-shadow-sm) !important;
+    border: 1px solid var(--plume-border-hairline) !important;
+    overflow: hidden !important;
+  }
+
+  /* Splitters become the gaps between cards */
+  #folderPaneSplitter,
+  #messagePaneSplitter {
+    background: transparent !important;
+    border: none !important;
+    min-width: var(--plume-pane-gap) !important;
+    min-height: var(--plume-pane-gap) !important;
+  }
+
+  /* ── Folder pane ───────────────────────────────────────────── */
+  #folderPaneHeaderBar {
+    background: transparent !important;
+    padding: var(--plume-space-5) var(--plume-space-5) var(--plume-space-4) !important;
+    border: none !important;
+  }
+
+  #folderPaneWriteMessage {
+    border-radius: var(--plume-radius-pill) !important;
+    padding-inline-end: var(--plume-control-pad-x) !important;
+    min-height: var(--plume-control-h-lg) !important;
+    font-weight: var(--plume-weight-semibold) !important;
+  }
+
+  #folderTree {
+    padding-inline: var(--plume-space-3) !important;
+  }
+
+  #folderTree li > .container {
+    border-radius: var(--plume-radius-sm) !important;
+    margin-block: 1px !important;
+    transition: var(--plume-transition-control) !important;
+  }
+
+  .mode-container > .mode-name {
+    font-size: var(--plume-text-micro) !important;
+    font-weight: var(--plume-weight-semibold) !important;
+    letter-spacing: var(--plume-track-micro) !important;
+    text-transform: uppercase !important;
+    color: var(--plume-text-subtle) !important;
+  }
+
+  .unread-count,
+  .total-count,
+  .folder-count-badge {
+    border-radius: var(--plume-radius-pill) !important;
+    font-weight: var(--plume-weight-semibold) !important;
+    font-size: var(--plume-text-caption) !important;
+  }
+
+  /* ── Message list ──────────────────────────────────────────── */
+  #threadPaneHeaderBar {
+    background: transparent !important;
+    border-bottom: 1px solid var(--plume-border-hairline) !important;
+    padding: var(--plume-space-4) var(--plume-space-5) !important;
+  }
+
+  #threadPaneFolderName {
+    font-size: var(--plume-text-h3) !important;
+    font-weight: var(--plume-weight-bold) !important;
+    letter-spacing: var(--plume-track-tight) !important;
+    color: var(--plume-text-strong) !important;
+  }
+
+  #threadPaneFolderCount {
+    color: var(--plume-text-subtle) !important;
+    background: var(--plume-surface-2) !important;
+    border-radius: var(--plume-radius-pill) !important;
+    border: none !important;
+  }
+
+  #threadPane > tree-view,
+  #threadTree {
+    background-color: var(--plume-surface-card) !important;
+  }
+
+  /* Column headers: micro caps */
+  #threadTree thead th,
+  #threadTree thead th button {
+    background: var(--plume-surface-card) !important;
+    color: var(--plume-text-subtle) !important;
+    font-size: var(--plume-text-micro) !important;
+    font-weight: var(--plume-weight-semibold) !important;
+    letter-spacing: var(--plume-track-micro) !important;
+    text-transform: uppercase !important;
+    border-color: var(--plume-border-hairline) !important;
+  }
+
+  /* Table view rows */
+  #threadTree [is="tree-view-table-body"] > tr {
+    transition: background-color var(--plume-duration-fast) var(--plume-ease-out) !important;
+  }
+
+  #threadTree [is="tree-view-table-body"] > tr:hover:not(.selected) {
+    background-color: var(--plume-surface-hover) !important;
+  }
+
+  #threadTree [is="tree-view-table-body"] > tr[data-properties~="unread"] {
+    font-weight: var(--plume-weight-semibold) !important;
+    color: var(--plume-text-strong) !important;
+  }
+
+  /* Cards view: separated, rounded cards */
+  #threadTree[rows="thread-card"] [is="tree-view-table-body"] > tr > td {
+    border-radius: var(--plume-radius-md) !important;
+  }
+
+  #threadTree[rows="thread-card"] .card-container {
+    border-radius: var(--plume-radius-md) !important;
+  }
+
+  /* Quick filter bar */
+  #quickFilterBarContainer,
+  #quick-filter-bar {
+    background: transparent !important;
+    border: none !important;
+  }
+
+  #quick-filter-bar button {
+    border-radius: var(--plume-radius-pill) !important;
+  }
+
+  /* ── Reading pane ─────────────────────────────────────────── */
+  #messageBrowser,
+  #multiMessageBrowser,
+  #webBrowser {
+    background-color: var(--plume-surface-card) !important;
+  }
+}
+
+/* Reading pane header (aboutMessage.xhtml lives inside #messageBrowser) */
+@-moz-document url("about:message"), url("chrome://messenger/content/aboutMessage.xhtml") {
+  :root, body {
+    background-color: var(--plume-surface-card) !important;
+  }
+
+  #messageHeader {
+    background: var(--plume-surface-card) !important;
+    border-bottom: 1px solid var(--plume-border-hairline) !important;
+    padding: var(--plume-space-6) var(--plume-space-7) var(--plume-space-5) !important;
+  }
+
+  #headerSubjectSecurityContainer,
+  .message-header-subject {
+    font-size: var(--plume-text-h2) !important;
+    font-weight: var(--plume-weight-bold) !important;
+    letter-spacing: var(--plume-track-tight) !important;
+    color: var(--plume-text-strong) !important;
+  }
+
+  .message-header-buttons-container button,
+  #header-view-toolbar button,
+  #header-view-toolbar toolbarbutton {
+    border-radius: var(--plume-radius-pill) !important;
+  }
+
+  .recipients-label,
+  .message-header-label {
+    color: var(--plume-text-subtle) !important;
+  }
+
+  #attachmentView,
+  #attachmentBar {
+    background: var(--plume-surface-card-muted) !important;
+    border-color: var(--plume-border-hairline) !important;
+  }
+}

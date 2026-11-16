@@ -1,0 +1,154 @@
+/* Base: maps Betterbird's own design variables onto Plume tokens,
+   sets the font, focus ring and scrollbars.
+
+   userChrome.css is a user stylesheet, and Betterbird's author styles win
+   over it unless a rule is !important. That's why every override here
+   carries !important. */
+
+/* ── Variable mapping (all chrome documents) ─────────────────────── */
+:root {
+  /* Layout surfaces and text */
+  --layout-background-0: var(--plume-surface-card) !important;
+  --layout-background-1: var(--plume-surface-shell) !important;
+  --layout-background-2: var(--plume-surface-2) !important;
+  --layout-background-3: var(--plume-surface-3) !important;
+  --layout-background-4: var(--plume-surface-4) !important;
+  --layout-color-0: var(--plume-text-strong) !important;
+  --layout-color-1: var(--plume-text-body) !important;
+  --layout-color-2: var(--plume-text-muted) !important;
+  --layout-color-3: var(--plume-text-subtle) !important;
+  --layout-border-0: var(--plume-border-subtle) !important;
+  --layout-border-1: var(--plume-border-strong) !important;
+  --layout-border-2: var(--plume-border-strong) !important;
+
+  /* Accent: neon blue selection with ink text */
+  --selected-item-color: var(--plume-accent) !important;
+  --selected-item-text-color: var(--plume-on-accent) !important;
+  --tabline-color: var(--plume-accent) !important;
+
+  /* Buttons */
+  --button-border-radius: var(--plume-radius-sm) !important;
+  --button-border-color: var(--plume-border-subtle) !important;
+  --button-background-color: var(--plume-surface-card) !important;
+  --button-hover-background-color: var(--plume-surface-2) !important;
+  --button-active-background-color: var(--plume-surface-3) !important;
+  --button-primary-background-color: var(--plume-accent) !important;
+  --button-primary-hover-background-color: var(--plume-accent-hover) !important;
+  --button-primary-active-background-color: var(--plume-accent-pressed) !important;
+  --button-primary-border-color: var(--plume-accent-pressed) !important;
+  --button-primary-text-color: var(--plume-on-accent) !important;
+  --button-primary-shadow: var(--plume-shadow-accent) !important;
+  --button-primary-hover-shadow: var(--plume-shadow-accent) !important;
+  --button-destructive-background-color: var(--plume-red-500) !important;
+  --button-destructive-border-color: var(--plume-red-700) !important;
+  --button-link-text-color: var(--plume-text-link) !important;
+  --toolbar-button-hover-background-color: var(--plume-surface-hover) !important;
+  --toolbar-button-active-background-color: var(--plume-surface-3) !important;
+
+  /* Inputs, focus */
+  --input-text-border-radius: var(--plume-radius-sm) !important;
+  --input-border-color: var(--plume-border-strong) !important;
+  --focus-outline-color: var(--plume-teal-500) !important;
+  --toolbar-field-focus-border-color: var(--plume-teal-500) !important;
+  --toolbar-field-background-color: var(--plume-surface-inset) !important;
+  --toolbar-field-color: var(--plume-text-body) !important;
+  --search-bar-background: var(--plume-surface-inset) !important;
+  --search-bar-focus-background: var(--plume-surface-card) !important;
+  --search-bar-border-color: var(--plume-border-subtle) !important;
+
+  /* Sidebars, panels */
+  --sidebar-background-color: var(--plume-surface-card) !important;
+  --sidebar-text-color: var(--plume-text-body) !important;
+  --sidebar-border-color: transparent !important;
+  --panel-border-radius: var(--plume-radius-md) !important;
+  --panel-background-color: var(--plume-surface-card) !important;
+  --panel-border-color: var(--plume-border-subtle) !important;
+  --chrome-content-separator-color: transparent !important;
+
+  /* Lists and trees */
+  --listbox-border-radius: var(--plume-radius-xs) !important;
+  --listbox-selected-bg: var(--plume-accent-soft) !important;
+  --listbox-hover: var(--plume-surface-hover) !important;
+  --tree-view-bg: var(--plume-surface-card) !important;
+  --tree-pane-background: var(--plume-surface-card) !important;
+  --tree-card-background: var(--plume-surface-card) !important;
+  --tree-card-border: var(--plume-border-hairline) !important;
+  --tree-view-header-hover-bg: var(--plume-surface-2) !important;
+  --unread-color: var(--plume-text-strong) !important;
+  --new-color: var(--plume-teal-600) !important;
+  --new-subject-color: var(--plume-teal-600) !important;
+  --new-folder-color: var(--plume-teal-600) !important;
+
+  /* Folder tree */
+  --treeitem-background-hover: var(--plume-surface-hover) !important;
+  --treeitem-background-selected: var(--plume-accent-soft) !important;
+  --treeitem-background-active: var(--plume-accent) !important;
+  --treeitem-text-active: var(--plume-on-accent) !important;
+  --folderpane-unread-count-background: var(--plume-badge-bg) !important;
+  --folderpane-unread-count-text: var(--plume-badge-text) !important;
+  --folderpane-total-count-background: var(--plume-surface-2) !important;
+  --folderpane-total-count-text: var(--plume-text-muted) !important;
+  --folderpane-unread-new-count-background: var(--plume-teal-600) !important;
+
+  /* Spaces bar and tabs */
+  --spaces-bg-color: var(--plume-surface-desk) !important;
+  --spaces-bg-image: none !important;
+  --spaces-button-active-bg-color: var(--plume-accent) !important;
+  --spaces-button-active-text-color: var(--plume-on-accent) !important;
+  --spaces-button-badge-bg-color: var(--plume-red-500) !important;
+  --tabs-toolbar-background-color: transparent !important;
+  --tabs-toolbar-box-shadow: none !important;
+  --toolbar-background-color: var(--plume-surface-desk) !important;
+
+  /* Motion */
+  --transition-duration: var(--plume-duration-base) !important;
+  --transition-timing: var(--plume-ease-out) !important;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--plume-border-strong) transparent;
+}
+
+/* Tree lists (folder pane, address book): soft accent fill, no borders.
+   Left alone in high-contrast mode, which needs the system colours. */
+@media not (forced-colors) {
+  :root {
+    --list-container-border: transparent !important;
+    --list-container-border-hover: transparent !important;
+    --list-container-border-selected: transparent !important;
+    --list-container-border-selected-current: transparent !important;
+    --list-container-border-selected-focused: transparent !important;
+    --list-container-border-selected-current-focused: transparent !important;
+    --list-container-background-hover: var(--plume-surface-hover) !important;
+    --list-container-background-selected: var(--plume-accent-soft) !important;
+    --list-container-background-selected-current: var(--plume-accent-soft) !important;
+    --list-container-background-selected-focused: var(--plume-accent-soft) !important;
+    --list-container-background-selected-current-focused: var(--plume-accent-soft) !important;
+  }
+
+  :is(ul, ol)[role="tree"] li.selected > .container {
+    box-shadow: inset 3px 0 0 var(--plume-accent) !important;
+  }
+}
+
+/* ── Font: only in Betterbird's own windows, never in DevTools ───── */
+@-moz-document url-prefix("chrome://messenger/"), url-prefix("chrome://calendar/"), url-prefix("about:") {
+  *:not(code, pre, kbd, samp, .monospace) {
+    font-family: var(--plume-font-sans) !important;
+  }
+  :root {
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ── Focus ring: soft teal instead of a hard outline ─────────────── */
+/* Only on controls: lists and trees draw their own focus state. */
+:is(button, .button, toolbarbutton, input, textarea, select, menulist, a):focus-visible {
+  outline: 2px solid var(--plume-border-focus) !important;
+  outline-offset: 1px !important;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────── */
+button.button-primary,
+.button.button-primary {
+  font-weight: var(--plume-weight-semibold) !important;
+}

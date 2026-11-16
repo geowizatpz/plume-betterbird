@@ -1,0 +1,22 @@
+/* Plume for Betterbird — userChrome.css
+   Styles the application UI: windows, panes, toolbars, menus, dialogs.
+   https://github.com/geowizatpz/plume-betterbird  (MIT)
+   Made by Geowiza, https://geowiza.com/
+
+   Order matters: tokens first, dark overrides after them, modules last.
+   Turn a module off by commenting out its line. */
+
+@import url("tokens/colors.css");
+@import url("tokens/shape.css");
+@import url("tokens/type.css");
+@import url("tokens/motion.css");
+@import url("tokens/colors-dark.css");
+
+@import url("modules/base.css");
+@import url("modules/main-window.css");
+@import url("modules/account-central.css");
+@import url("modules/compose.css");
+@import url("modules/dialogs.css");
+
+/* Personal tweaks go in user-overrides.css, which updates never overwrite. */
+@import url("user-overrides.css");

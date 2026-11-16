@@ -1,0 +1,94 @@
+/* Account overview: the page shown when an account (not a folder) is
+   selected in the folder pane. Lives in msgAccountCentral.xhtml inside
+   #accountCentralBrowser. */
+
+@-moz-document url-prefix("chrome://messenger/content/msgAccountCentral.xhtml") {
+
+  body,
+  #accountCentral {
+    background-color: var(--plume-surface-card) !important;
+    color: var(--plume-text-body) !important;
+  }
+
+  /* Header with the account name */
+  .account-central-header {
+    background-color: var(--plume-surface-card) !important;
+    border-bottom: 1px solid var(--plume-border-hairline) !important;
+    padding: var(--plume-space-7) var(--plume-space-8) !important;
+  }
+
+  #accountName {
+    font-size: var(--plume-text-h2) !important;
+    font-weight: var(--plume-weight-bold) !important;
+    letter-spacing: var(--plume-track-tight) !important;
+    color: var(--plume-text-strong) !important;
+  }
+
+  /* Sections: no zebra stripes, hairline dividers instead */
+  .account-central-section {
+    padding: var(--plume-space-5) var(--plume-space-8) !important;
+  }
+
+  .account-central-section.zebra {
+    background-color: var(--plume-surface-card-muted) !important;
+  }
+
+  .account-central-section + .account-central-section {
+    border-top: 1px solid var(--plume-border-hairline) !important;
+  }
+
+  .section-title {
+    font-size: var(--plume-text-micro) !important;
+    font-weight: var(--plume-weight-semibold) !important;
+    letter-spacing: var(--plume-track-micro) !important;
+    text-transform: uppercase !important;
+    color: var(--plume-text-subtle) !important;
+  }
+
+  /* Quick actions row (Read messages, Write a new message, ...) */
+  .btn-link {
+    border-radius: var(--plume-radius-pill) !important;
+    padding: var(--plume-space-3) var(--plume-space-5) !important;
+    color: var(--plume-text-body) !important;
+    transition: var(--plume-transition-control) !important;
+  }
+
+  .btn-link:hover {
+    background-color: var(--plume-surface-2) !important;
+    color: var(--plume-text-strong) !important;
+  }
+
+  .btn-link::before {
+    color: var(--plume-accent-strong) !important;
+  }
+
+  /* Setup tiles (Email, Address Book, ...) */
+  .btn-hub {
+    background-color: var(--plume-surface-card) !important;
+    color: var(--plume-text-body) !important;
+    border: 1px solid var(--plume-border-subtle) !important;
+    border-radius: var(--plume-radius-md) !important;
+    box-shadow: var(--plume-shadow-raised) !important;
+    font-weight: var(--plume-weight-medium) !important;
+    transition: var(--plume-transition-control) !important;
+  }
+
+  .btn-hub::before {
+    color: var(--plume-accent-strong) !important;
+  }
+
+  .btn-hub:not([disabled]):hover {
+    background-color: var(--plume-accent) !important;
+    border-color: var(--plume-accent-pressed) !important;
+    color: var(--plume-on-accent) !important;
+    box-shadow: var(--plume-shadow-accent) !important;
+  }
+
+  .resource-link {
+    color: var(--plume-text-link) !important;
+  }
+
+  #accountSettingsButton {
+    border-radius: var(--plume-radius-pill) !important;
+  }
+}
